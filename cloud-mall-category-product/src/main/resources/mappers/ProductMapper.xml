@@ -169,7 +169,7 @@
         from imooc_mall_product
         order by update_time desc
     </select>
-    <select id="selectList" parameterType="com.imooc.mall.model.query.ProductListQuery" resultMap="BaseResultMap">
+    <select id="selectList" parameterType="com.imooc.cloud.mall.practice.categoryproduct.model.query.ProductListQuery" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from imooc_mall_product

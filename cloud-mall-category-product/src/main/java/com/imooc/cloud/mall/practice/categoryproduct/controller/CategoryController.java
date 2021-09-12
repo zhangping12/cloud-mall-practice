@@ -4,22 +4,18 @@ import com.github.pagehelper.PageInfo;
 import com.imooc.cloud.mall.practice.categoryproduct.model.pojo.Category;
 import com.imooc.cloud.mall.practice.categoryproduct.model.request.AddCategoryReq;
 import com.imooc.cloud.mall.practice.categoryproduct.model.request.UpdateCategoryReq;
-import com.imooc.cloud.mall.practice.categoryproduct.service.CategoryService;
 import com.imooc.cloud.mall.practice.categoryproduct.model.vo.CategoryVO;
+import com.imooc.cloud.mall.practice.categoryproduct.service.CategoryService;
 import com.imooc.cloud.mall.practice.common.common.ApiRestResponse;
-
 import io.swagger.annotations.ApiOperation;
-import java.util.List;
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * 描述：     目录Controller
