@@ -24,16 +24,6 @@ public class Constant {
     public static final String SALT = "8sdfsdfsdf,.03[]";
 
     /**
-     * 图片上传路径的配置
-     */
-    public static String FILE_UPLOAD_DIR;
-
-    @Value("${file.upload.dir}")//需要去lication.properties去配置
-    public void setFileUploadDir(String fileUploadDir) {
-        FILE_UPLOAD_DIR = fileUploadDir;
-    }
-
-    /**
      * 排序字段定义
      */
     public interface ProductListOrderBy {
