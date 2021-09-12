@@ -3,6 +3,7 @@ package com.imooc.cloud.mall.practice.zuul.feign;
 import com.imooc.cloud.mall.practice.user.model.pojo.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -17,5 +18,5 @@ public interface UserFeignClient {
      * @return
      */
     @PostMapping("/checkAdminRole")
-    public Boolean checkAdminRole(@RequestParam User user);
+    public Boolean checkAdminRole(@RequestBody User user);
 }

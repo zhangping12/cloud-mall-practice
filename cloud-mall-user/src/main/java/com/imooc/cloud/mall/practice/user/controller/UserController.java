@@ -8,10 +8,7 @@ import com.imooc.cloud.mall.practice.user.model.pojo.User;
 import com.imooc.cloud.mall.practice.user.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -147,7 +144,7 @@ public class UserController {
      */
     @PostMapping("/checkAdminRole")
     @ResponseBody
-    public Boolean checkAdminRole(@RequestParam User user){
+    public Boolean checkAdminRole(@RequestBody User user){
         return userService.checkAdminRole(user);
     }
 
