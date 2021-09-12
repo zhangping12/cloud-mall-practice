@@ -7,11 +7,11 @@ import com.imooc.cloud.mall.practice.categoryproduct.model.request.AddProductReq
 import com.imooc.cloud.mall.practice.categoryproduct.model.request.UpdateProductReq;
 import com.imooc.cloud.mall.practice.categoryproduct.service.ProductService;
 import com.imooc.cloud.mall.practice.common.common.ApiRestResponse;
-import com.imooc.cloud.mall.practice.common.common.Constant;
 import com.imooc.cloud.mall.practice.common.exception.ImoocMallException;
 import com.imooc.cloud.mall.practice.common.exception.ImoocMallExceptionEnum;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -32,6 +32,12 @@ public class ProductAdminController {
 
     @Resource
     private ProductService productService;
+
+    @Value("${file.upload.ip}")
+    String ip;
+
+    @Value("${file.upload.port}")
+    Integer port;
 
     @PostMapping("/admin/product/add")
     public ApiRestResponse addProduct(@Valid @RequestBody AddProductReq addProductReq) {
@@ -60,7 +66,7 @@ public class ProductAdminController {
             e.printStackTrace();
         }
         try {
-            return ApiRestResponse.success(getHost(new URI(httpServletRequest.getRequestURL() + "")) + "/images/" + newFileName);
+            return ApiRestResponse.success(getHost(new URI(httpServletRequest.getRequestURL() + "")) + "/category-product/images/" + newFileName);
         } catch (URISyntaxException e) {
             return ApiRestResponse.error(ImoocMallExceptionEnum.UPOAD_FAILED);
         }
@@ -69,7 +75,7 @@ public class ProductAdminController {
     private URI getHost(URI uri) {
         URI effectiveURI;
         try {
-            effectiveURI = new URI(uri.getScheme(), uri.getUserInfo(), uri.getHost(), uri.getPort(), null, null, null);
+            effectiveURI = new URI(uri.getScheme(), uri.getUserInfo(), ip, port, null, null, null);
         } catch (URISyntaxException e) {
             effectiveURI = null;
         }
