@@ -140,4 +140,15 @@ public class UserController {
 
     }
 
+    /**
+     * 校验是否是管理员
+     * @param user
+     * @return
+     */
+    @PostMapping("/checkAdminRole")
+    @ResponseBody
+    public Boolean checkAdminRole(@RequestParam User user){
+        return userService.checkAdminRole(user);
+    }
+
 }
