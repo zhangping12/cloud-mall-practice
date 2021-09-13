@@ -148,4 +148,16 @@ public class UserController {
         return userService.checkAdminRole(user);
     }
 
+    /**
+     * 获取当前登录的User对象
+     * @param session
+     * @return
+     */
+    @GetMapping("/getUser")
+    @ResponseBody
+    public User getUser(HttpSession session){
+        User user = (User)session.getAttribute(Constant.IMOOC_MALL_USER);
+        return user;
+    }
+
 }

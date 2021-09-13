@@ -19,6 +19,8 @@ public enum ImoocMallExceptionEnum {
     DELETE_FAILED(10013,"删除失败"),
     MKDIR_FAILED(10014,"创建文件夹失败"),
     UPOAD_FAILED(10015,"上传失败"),
+    NOT_SALE(10016,"商品未上架"),
+    NOT_ENOUGH(10017,"商品库存不足"),
     SYSTEM_ERROR(20000, "系统异常");
     //异常码
     Integer code;

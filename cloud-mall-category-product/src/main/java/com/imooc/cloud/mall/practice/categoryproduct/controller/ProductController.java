@@ -33,4 +33,15 @@ public class ProductController {
         PageInfo list = productService.list(productListReq);
         return ApiRestResponse.success(list);
     }
+
+    /**
+     * 用于内部接口之间的调用---cartorder子模块需要此功能
+     * @param id
+     * @return
+     */
+    @GetMapping("product/detailForFeign")
+    public Product detailForFeign(@RequestParam Integer id) {
+        Product product = productService.detail(id);
+        return product;
+    }
 }
