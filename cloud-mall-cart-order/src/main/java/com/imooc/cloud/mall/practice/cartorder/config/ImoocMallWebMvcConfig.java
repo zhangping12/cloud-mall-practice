@@ -6,7 +6,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * 描述：地址映射配置
+ * 描述：地址映射配置，解决图片url访问不到
  */
 @Configuration
 public class ImoocMallWebMvcConfig implements WebMvcConfigurer {
