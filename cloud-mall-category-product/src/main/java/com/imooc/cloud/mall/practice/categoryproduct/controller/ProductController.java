@@ -6,7 +6,9 @@ import com.imooc.cloud.mall.practice.categoryproduct.model.request.ProductListRe
 import com.imooc.cloud.mall.practice.categoryproduct.service.ProductService;
 import com.imooc.cloud.mall.practice.common.common.ApiRestResponse;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -43,5 +45,15 @@ public class ProductController {
     public Product detailForFeign(@RequestParam Integer id) {
         Product product = productService.detail(id);
         return product;
+    }
+
+    /**
+     * 用于内部接口之间的调用---cartorder子模块需要此功能
+     * @param productId
+     * @param stock
+     */
+    @PostMapping("product/updateStock")
+    public void updateStock(@RequestParam Integer productId, @RequestParam Integer stock){
+        productService.updateStock(productId,stock);
     }
 }

@@ -16,6 +16,7 @@ import com.imooc.cloud.mall.practice.common.exception.ImoocMallExceptionEnum;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -136,5 +137,14 @@ public class ProductServiceImpl implements ProductService {
             }
         }
     }
+
+    @Override
+    public void updateStock(Integer productId, Integer stock){
+       Product product = new Product();
+       product.setId(productId);
+       product.setStock(stock);
+       productMapper.updateByPrimaryKeySelective(product);
+    }
+
 
 }
